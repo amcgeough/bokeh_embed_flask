@@ -5,5 +5,4 @@ pandas
 numpy
 sklearn
 scipy
-bokeh
 nltk
