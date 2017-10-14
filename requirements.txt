@@ -1,7 +1,7 @@
 gunicorn
+pandas
 flask
 bokeh
-pandas
 numpy
 sklearn
 scipy
