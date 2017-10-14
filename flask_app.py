@@ -19,7 +19,7 @@ app_html="""
 app = Flask(__name__)
 
 bokeh_process = subprocess.Popen(
-    ['bokeh', 'serve','--allow-websocket-origin=127.0.0.1:8000', '--port=8000', '--host=127.0.0' ,'bokeh_plot.py'], stdout=subprocess.PIPE)
+    ['bokeh', 'serve','--allow-websocket-origin=127.0.0.1:5000', '--port=5000','bokeh_plot.py'], stdout=subprocess.PIPE)
 #    ['bokeh', 'serve','--allow-websocket-origin=127.0.0.1:5001', '--port=5001','bokeh_plot.py'], stdout=subprocess.PIPE)
 
 @atexit.register
@@ -35,4 +35,4 @@ def index():
 
 if __name__ == '__main__':
     print("STARTED")
-    app.run(debug=True, port='8080')
+    app.run(debug=True)
