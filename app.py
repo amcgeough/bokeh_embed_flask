@@ -16,11 +16,11 @@ app_html="""
 </html>
 """
 
-#app = Flask(__name__)
+app = Flask(__name__)
 
-bokeh_process = subprocess.Popen(
-#    ['bokeh', 'serve','--allow-websocket-origin=127.0.0.1:8000', '--port=8000','bokeh_plot.py'], stdout=subprocess.PIPE)
-    ['bokeh', 'serve','bokeh_plot.py'], stdout=subprocess.PIPE)
+subprocess.Popen(
+    ['bokeh', 'serve','--allow-websocket-origin=127.0.0.1:8080', '--port=8080','bokeh_plot.py'], stdout=subprocess.PIPE)
+#    ['bokeh', 'serve','bokeh_plot.py'], stdout=subprocess.PIPE)
 
 """
 @atexit.register
@@ -33,8 +33,7 @@ def index():
     bokeh_script=autoload_server(None,app_path="/bokeh_plot",session_id=session.id)
     # return render_template('app.html', bokeh_script=bokeh_script)
     return render_template_string(app_html, bokeh_script=bokeh_script)
-
+"""
 if __name__ == '__main__':
     print("STARTED")
     app.run(debug=True)
-"""
