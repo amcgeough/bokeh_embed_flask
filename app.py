@@ -35,4 +35,4 @@ def index():
     return render_template_string(app_html, bokeh_script=bokeh_script)
 """
 if __name__ == '__main__':
-#    app.run(debug=True)
+    app.run(debug=True)
