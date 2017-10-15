@@ -18,7 +18,7 @@ app_html="""
 
 app = Flask(__name__)
 
-bokeh_process = subprocess.Popen(["bokeh", "serve", "--allow-websocket-origin=bokeh-flask-bokeh-flask.a3c1.starter-us-west-1.openshiftapps","--port=$PORT", "--host=bokeh-flask-bokeh-flask.a3c1.starter-us-west-1.openshiftapps.com", "--host=*", "--address=0.0.0.0", "--use-xheaders", "bokeh_plot.py"],stdout=subprocess.PIPE)
+bokeh_process = subprocess.Popen(["bokeh", "serve", "--allow-websocket-origin=bokeh-flask-bokeh-flask.a3c1.starter-us-west-1.openshiftapps","--port=5006", "--host=bokeh-flask-bokeh-flask.a3c1.starter-us-west-1.openshiftapps.com", "--host=*", "--address=0.0.0.0", "--use-xheaders", "bokeh_plot.py"],stdout=subprocess.PIPE)
 
 """
 subprocess.Popen(
