@@ -18,7 +18,7 @@ app_html="""
 
 app = Flask(__name__)
 
-bokeh_process = subprocess.Popen(["bokeh", "serve", "--allow-websocket-origin=flokeh-bokeh-flask.a3c1.starter-us-west-1.openshiftapps", "--host=flokeh-bokeh-flask.a3c1.starter-us-west-1.openshiftapps.com", "--host=*", "--address=flokeh-bokeh-flask.a3c1.starter-us-west-1.openshiftapps", "--use-xheaders", "bokeh_plot.py"],stdout=subprocess.PIPE)
+bokeh_process = subprocess.Popen(["bokeh", "serve", "--allow-websocket-origin=flokeh-bokeh-flask.a3c1.starter-us-west-1.openshiftapps:8080", "--port=8080", "--use-xheaders", "bokeh_plot.py"],stdout=subprocess.PIPE)
 
 """
 subprocess.Popen(
@@ -34,7 +34,7 @@ def kill_server():
 @app.route('/')
 def index():
     session=pull_session(app_path='/bokeh_plot')
-    bokeh_script=autoload_server(None,app_path="/bokeh_plot",session_id=session.id)
+    bokeh_script=autoload_server(None,app_path="/bokeh_plot",session_id=session.id, url='http://flokeh-bokeh-flask.a3c1.starter-us-west-1.openshiftapps.com')
     # return render_template('app.html', bokeh_script=bokeh_script)
     return render_template_string(app_html, bokeh_script=bokeh_script)
 
